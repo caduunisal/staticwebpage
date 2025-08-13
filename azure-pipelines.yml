@@ -1,0 +1,16 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+
+- script: echo "Executando build de teste..."
+  displayName: "Build de Teste"
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '.'
+    ArtifactName: 'site'
